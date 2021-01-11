@@ -48,16 +48,24 @@ struct TabViewContent: View {
     @ObservedObject var item: PageViewItem
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 5) {
             Text(item.name)
                 .font(.headline)
             Text("Appear-count: \(item.count)")
+            ScrollView {
+                VStack {
+                    ForEach(1 ..< 50) {
+                        Text("Control \($0)")
+                    }
+                }
+            }
         }
         .tag(item.id)
         .onAppear {
             item.count += 1
             print("\(item.name) appeared: \(item.count)")
         }
+        .padding()
     }
 }
 
