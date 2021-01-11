@@ -22,12 +22,39 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        TabView {
-            ForEach(self.items) { item in
-                Text(item.name)
+        VStack {
+            TabView {
+                Text("1")
+                    .onAppear {
+                        print("1 appeared")
+                    }
+                Text("2")
+                    .onAppear {
+                        print("2 appeared")
+                    }
+                Text("3")
+                    .onAppear {
+                        print("3 appeared")
+                    }
+                Text("4")
+                    .onAppear {
+                        print("4 appeared")
+                    }
             }
+            .background(Color.red)
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            /*TabView {
+                ForEach(self.items) { item in
+                    Text(item.name)
+                        .tag(item.id)
+                        .onAppear {
+                            print("\(item.name) appears")
+                        }
+                }
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))*/
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
     }
 }
 
