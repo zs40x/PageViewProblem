@@ -22,8 +22,12 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            ForEach(self.items) { item in
+                Text(item.name)
+            }
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
     }
 }
 
@@ -33,7 +37,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct PageViewItem {
+struct PageViewItem: Identifiable {
     let id: Int
     let name: String
 }
