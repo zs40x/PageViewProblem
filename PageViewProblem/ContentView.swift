@@ -21,25 +21,31 @@ struct ContentView: View {
         PageViewItem(id: 8, name: "Last Item"),
     ]
     
+    @State var selectedIndex: Int = 0
+        
     var body: some View {
         VStack {
-            TabView {
+            TabView(selection: $selectedIndex) {
                 Text("1")
                     .onAppear {
                         print("1 appeared")
                     }
+                    .tag(0)
                 Text("2")
                     .onAppear {
                         print("2 appeared")
                     }
+                    .tag(1)
                 Text("3")
                     .onAppear {
                         print("3 appeared")
                     }
+                    .tag(2)
                 Text("4")
                     .onAppear {
                         print("4 appeared")
                     }
+                    .tag(3)
             }
             .background(Color.red)
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
