@@ -48,13 +48,6 @@ struct TabViewContent: View {
             Text(item.name)
                 .font(.headline)
             Text("Appear-count: \(item.count)")
-            ScrollView {
-                VStack {
-                    ForEach(1 ..< 50) {
-                        Text("Control \($0)")
-                    }
-                }
-            }
         }
         .tag(item.id)
         .onAppear {
